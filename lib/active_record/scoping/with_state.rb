@@ -9,10 +9,14 @@ module ActiveRecord
         alias_method_chain :scope, :state
       end
 
+      def has_scoped_state?(name)
+        self.class.send(name.to_sym).exists?(self.id)
+      end
+
       module ClassMethods
         def scope_with_state(name, body, &block)
           scope_without_state name, body, &block
-          class_eval "def #{name}?() self.class.#{name}.exists?(self.id) end"
+          class_eval "def #{name}?() self.has_scoped_state?(#{name}) end"
         end
 
         def configure(&block)

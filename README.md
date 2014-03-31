@@ -57,8 +57,9 @@ The helper methods will have the same name as your scopes, with a `?` appended.
 Eg:
 
 `scope :upcoming, -> { ... }` will generate `.upcoming?`  
-or
-`scope :spam -> { ... }` will generate `.spam?`  
+and  
+`scope :spam -> { ... }` will generate `.spam?`
+
 You get the picture.
 
 
@@ -83,8 +84,30 @@ to establish a model instance's state. Arguably not ideal, however the query is
 as efficient as possible (I think?).
 
 If you have performance concerns, I would recommend overriding the generated
-state methods for production use.
+state methods for production use. In this case, this gem can still be used
+in test cases by calling `has_scoped_state(scope_name)` on your model instances.
+In this way, you can help validate that your overridden state methods are
+congruent to the conditions in your scope.
 
+Using the above `Event` model again, however the `upcoming?` method has been
+overridden with:
+
+```ruby
+# app/models/event.rb
+
+def upcoming?
+  self.starts_at > Time.now
+end
+```
+
+Obviously this is better than hitting the database, however we'd like to write
+a test case that ensures that the new method is the equivalent of the generated
+one - so we can do something like this:
+
+```ruby
+future_event = Event.create(:starts_at => 5.days.from_now)
+assert_equal future_event.upcoming?, future_event.has_scoped_state?(:upcoming)
+```
 
 ## Contributing
 
