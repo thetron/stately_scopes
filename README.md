@@ -39,7 +39,7 @@ upcoming_event.upcoming? # => true
 
 Add this line to your application's Gemfile:
 
-    gem 'active_record-scoping-with_state'
+    gem 'stately_scopes'
 
 And then execute:
 
@@ -47,7 +47,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install active_record-scoping-with_state
+    $ gem 'stately_scopes'
 
 
 ## Usage
