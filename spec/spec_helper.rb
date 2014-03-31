@@ -2,7 +2,7 @@ require 'bundler'
 Bundler.require(:default)
 
 require 'active_record'
-require 'scoping/with_state'
+require 'stately_scopes'
 require 'pp'
 
 require 'minitest/autorun'

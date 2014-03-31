@@ -1,4 +1,4 @@
-# Scoping::WithState
+# StatelyScopes
 
 An ActiveRecord extension so small, it's almost silly - but it is kinda helpful.
 

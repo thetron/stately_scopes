@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'scoping/with_state/version'
+require 'stately_scopes/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "scoping_with_state"
-  spec.version       = Scoping::WithState::VERSION
+  spec.name          = "stately_scopes"
+  spec.version       = StatelyScopes::VERSION
   spec.authors       = ["Nicholas Bruning"]
   spec.email         = ["nicholas@bruning.com.au"]
   spec.summary       = %q{Automatically creates state query methods for each of your model's scopes.}

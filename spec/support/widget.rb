@@ -1,4 +1,4 @@
 class Widget < ActiveRecord::Base
-  include Scoping::WithState
+  include StatelyScopes
   scope :faked, -> { where(:fake => true) }
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Scoping::WithState do
+describe StatelyScopes do
   it "aliases the scope method" do
     Widget.public_methods.must_include :scope_without_state, "Expected widget to alias `scope'"
   end
@@ -34,7 +34,7 @@ describe Scoping::WithState do
   describe "configuration" do
     context "when alias_scope_method = false" do
       it "does not alias the scope method" do
-        Scoping::WithState.configure { |c| c.alias_scope_method = false }
+        StatelyScopes.configure { |c| c.alias_scope_method = false }
         reload_widget
         Widget.public_methods.wont_include :scope_without_state, "Expected widget to not alias `scope'"
       end
@@ -42,15 +42,15 @@ describe Scoping::WithState do
 
     describe "#configure" do
       it "yields the configuration" do
-        Scoping::WithState.configure do |config|
-          config.must_equal Scoping::WithState::Configuration.configuration
+        StatelyScopes.configure do |config|
+          config.must_equal StatelyScopes::Configuration.configuration
         end
       end
     end
 
     describe "#configuration" do
       it "sets alias_scope_method to true by default" do
-        Scoping::WithState.configuration.alias_scope_method.must_equal true
+        StatelyScopes.configuration.alias_scope_method.must_equal true
       end
     end
   end
