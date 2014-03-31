@@ -85,7 +85,7 @@ as efficient as possible (I think?).
 
 If you have performance concerns, I would recommend overriding the generated
 state methods for production use. In this case, this gem can still be used
-in test cases by calling `has_scoped_state(scope_name)` on your model instances.
+in test cases by calling `.has_scoped_state(scope_name)` on your model instances.
 In this way, you can help validate that your overridden state methods are
 congruent to the conditions in your scope.
 
