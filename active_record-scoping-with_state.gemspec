@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'active_record/scoping/with_state/version'
+require 'scoping/with_state/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "active_record-scoping-with_state"
-  spec.version       = ActiveRecord::Scoping::WithState::VERSION
+  spec.name          = "scoping_with_state"
+  spec.version       = Scoping::WithState::VERSION
   spec.authors       = ["Nicholas Bruning"]
   spec.email         = ["nicholas@bruning.com.au"]
   spec.summary       = %q{Automatically creates state query methods for each of your model's scopes.}
@@ -18,6 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.5"
+  spec.add_runtime_dependency "activerecord",   "~> 4.0.4"
+
+  spec.add_development_dependency "bundler",    "~> 1.5"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "minitest"
+  spec.add_development_dependency "sqlite3"
 end
