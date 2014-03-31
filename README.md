@@ -1,5 +1,6 @@
 # StatelyScopes
 
+[![Build Status](https://travis-ci.org/thetron/stately_scopes.svg?branch=master)](https://travis-ci.org/thetron/stately_scopes)
 [![Code Climate](https://codeclimate.com/github/thetron/stately_scopes.png)](https://codeclimate.com/github/thetron/stately_scopes)
 
 An ActiveRecord extension so small, it's almost silly - but it is kinda helpful.
