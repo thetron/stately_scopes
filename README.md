@@ -1,5 +1,7 @@
 # StatelyScopes
 
+[![Code Climate](https://codeclimate.com/github/thetron/stately_scopes.png)](https://codeclimate.com/github/thetron/stately_scopes)
+
 An ActiveRecord extension so small, it's almost silly - but it is kinda helpful.
 
 I've found that when developing Rails apps, I tend to almost always pair each
