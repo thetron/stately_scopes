@@ -6,7 +6,7 @@ module ActiveRecord
       extend ActiveSupport::Concern
 
       included do
-        alias_method_chain :scope, :state
+        alias_method_chain :scope, :state if ActiveRecord::Scoping::WithState.configuration.alias_scope_method
       end
 
       def has_scoped_state?(name)
