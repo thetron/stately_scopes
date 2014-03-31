@@ -1,6 +1,6 @@
-# ActiveRecord::Scoping::WithState
+# Scoping::WithState
 
-So small, it's almost silly - but it is kinda helpful.
+An ActiveRecord extension so small, it's almost silly - but it is kinda helpful.
 
 I've found that when developing Rails apps, I tend to almost always pair each
 scope with an instance method which returns a boolean indicating whether the
@@ -18,7 +18,7 @@ Using a small `Event` model:
 
 ```ruby
 class Event < ActiveRecord::Base
-  include ActiveRecord::Scoping::WithState
+  include Scoping::WithState
   scope :upcoming, -> { where ("starts_at > ?", Time.now) }
 end
 ```
@@ -62,6 +62,9 @@ and
 
 You get the picture.
 
+If you're wanting to avoid the automatically generated state methods on a given
+scope, you can simply use `scope_without_state` instead of `scope`.
+
 
 ## Configuration
 
@@ -71,7 +74,7 @@ state method for. To do that, add the following initializer:
 
 ```ruby
 # config/initializers/active_record-scoping-with_state.rb
-ActiveRecord::Scoping::WithState.configure do |config|
+Scoping::WithState.configure do |config|
   config.alias_scope_method = false
 end
 ```
