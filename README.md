@@ -24,8 +24,8 @@ end
 ```
 
 ```ruby
-old_event = Event.create(:starts_at => Time.now - 1.day)
-upcoming_event = Event.create(:starts_at => Time.now + 1.day)
+old_event = Event.create(:starts_at => 1.day.ago)
+upcoming_event = Event.create(:starts_at => 1.day.from_now)
 
 old_event.upcoming? # => false
 upcoming_event.upcoming? # => true
