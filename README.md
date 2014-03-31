@@ -4,9 +4,9 @@ An ActiveRecord extension so small, it's almost silly - but it is kinda helpful.
 
 I've found that when developing Rails apps, I tend to almost always pair each
 scope with an instance method which returns a boolean indicating whether the
-object is included inside that scope.
+object is included inside a given scope.
 
-This gem simply automatically creates that method for you. Nothing super fancy,
+This gem simply automates that method creation for you. Nothing super fancy,
 and you might consider replacing the state methods with your own, more
 efficient, implementations - but it's great for early stages of development, or
 providing a comparative case for unit tests.
