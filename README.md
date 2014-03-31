@@ -20,7 +20,7 @@ Using a small `Event` model:
 
 ```ruby
 class Event < ActiveRecord::Base
-  include Scoping::WithState
+  include StatelyScopes
   scope :upcoming, -> { where ("starts_at > ?", Time.now) }
 end
 ```
@@ -76,7 +76,7 @@ state method for. To do that, add the following initializer:
 
 ```ruby
 # config/initializers/active_record-scoping-with_state.rb
-Scoping::WithState.configure do |config|
+StatelyScopes.configure do |config|
   config.alias_scope_method = false
 end
 ```
