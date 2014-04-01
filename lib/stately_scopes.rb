@@ -23,7 +23,7 @@ module StatelyScopes
       else
         scope name, body, &block
       end
-      class_eval "def #{name}?() self.has_scoped_state?(#{name}) end"
+      class_eval "def #{name}?() self.has_scoped_state?(:#{name}) end"
     end
   end
 
