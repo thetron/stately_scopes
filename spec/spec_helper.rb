@@ -33,4 +33,9 @@ def reload_widget
   load 'support/widget.rb'
 end
 
+def reload_stately_scopes
+  Object.send(:remove_const, :'StatelyScopes')
+  load File.join(File.expand_path(File.dirname(__FILE__)), "..", "lib", "stately_scopes.rb")
+end
+
 load 'support/widget.rb'

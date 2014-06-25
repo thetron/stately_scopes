@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe StatelyScopes do
+  before do
+    reload_stately_scopes
+    reload_widget
+  end
+
   it "aliases the scope method" do
     Widget.public_methods.must_include :scope_without_state, "Expected widget to alias `scope'"
   end
