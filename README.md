@@ -106,9 +106,29 @@ def upcoming?
 end
 ```
 
-Obviously this is better than hitting the database, however we'd like to write
-a test case that ensures that the new method is the equivalent of the generated
-one - so we can do something like this:
+Obviously this is always going to be better than hitting the database. The
+philosophy behind StatelyScopes is to make things easier initially, whilst
+you're still working things out.
+
+As part of updating your scopes, we recommend implementing the test behaviour
+outlined below, to best ensure that your overridden methods are providing
+the expected output.
+
+## Testing
+
+Given the aforementioned caveats, it's always in your best interests to
+(eventually) update your scopes so that you're no longer hitting the database
+for simple query methods that can be handled on the model itself.
+
+StatelyScopes gives you a nice easy way to ensure that when you do make these
+changes, that the output
+
+To test your scopes, you have access to the `.has_scoped_state?(:scope_name)` 
+method, which returns true if the model belongs to the set returned for a given
+scope.
+
+Using the example above, you might have a test which is something along these
+lines:
 
 ```ruby
 future_event = Event.create(:starts_at => 5.days.from_now)
